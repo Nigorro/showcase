@@ -1,0 +1,12 @@
+<div class="box"  ng-repeat="item in data.out">
+    <h2 ng-click="show = !show" >{{item.siteTitle}}</h2>
+    <div class="content ng-hide" ng-show="show">
+      <p>{{item.siteDescription}}</p>
+      <strong>Главная страница</strong> <a href="{{item.siteUrl}}">{{item.siteUrl}}</a>
+      <ul>
+        <li  ng-repeat='item in item.nestedPage'>
+            {{item.description}} <a href="{{item.url}}">{{item.url}}</a>
+        </li>
+      </ul>
+    </div>
+</div>

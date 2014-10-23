@@ -1,0 +1,15 @@
+<h1 style="color: #273AFF;">Редактирование записей</h1>
+<a href="#" editable-text="user.name">{{ user.name || "empty" }}</a>
+<div class="box"  ng-repeat="item in data.out">
+    <h2 id='{{item.id}}' ng-click="show = !show" >{{item.siteTitle}}<span  ng-click="edit($event)" data-id='{{item.id}}' class="glyphicon glyphicon-edit"></span></h2>
+    <div class="content ng-hide" ng-show="show">
+      <strong> <p editable-textarea='item.siteTitle'>{{item.siteTitle}}</p></strong>
+      <p editable-textarea='item.siteDescription'>{{item.siteDescription}}</p>
+      <strong>Главная страница </strong> <a editable-textarea='item.siteUrl' href="{{item.siteUrl}}">{{item.siteUrl}}</a>
+      <ul>
+        <li ng-repeat='item in item.nestedPage'>
+            <span  editable-textarea='item.description'>{{item.description}}</span> <a  editable-textarea='item.url' href="{{item.url}}">{{item.url}}</a>
+        </li>
+      </ul>
+    </div>
+</div>

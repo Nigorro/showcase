@@ -1,0 +1,18 @@
+<h1>Новая запись</h1>
+<br>
+<form  role="form" style="text-align: center;padding-bottom: 15px;" ng-submit='addProject()'>
+  <div class="form-group col-md-6">
+    <input type="text" class="form-control" ng-model='Url' id="siteUrl" placeholder="Ссылка заглавную  на страницу проекта">
+  </div>
+  <div class="form-group col-md-6">
+    <input type="text" class="form-control" ng-model='Title' ng-model id="siteTitle" placeholder="Название проекта">
+  </div>
+  <div class="form-group col-md-12">
+    <textarea id='siteDescription' ng-model='Description' class="form-control" rows="3" placeholder="Описание проекта"></textarea>
+  </div>
+  <div class="form-group col-md-12">
+    <textarea id='' ng-model='Nested' class="form-control" rows="5" placeholder="Ссылка на допольнительную страницу * описание"></textarea>
+  </div>
+  <button type="submit" class="btn btn-default">Отправить</button>
+  <br>
+</form>
