@@ -1,4 +1,4 @@
-.glyphicon-edit {
+.glyphicon-floppy-saved {
 	float:right;
 }
 .editable-input {
@@ -6,5 +6,5 @@
 	height:50px;
 }
 .editable-buttons .btn-primary {
-	margin-right: 20px;
+	margin-right: 5px;
 }

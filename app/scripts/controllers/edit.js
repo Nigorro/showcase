@@ -5,7 +5,6 @@ angular.module('showcasesApp')
     $scope.show = false;
     $scope.allLoad = false;
     $scope.editData = function (item, id) {
-      console.log(item);
       $http.put($scope.dpd+'/'+id, item)
         .error(function (err) {
           return console.log(err.message || (err.errors && err.errors.completed) || 'an error occurred');
@@ -19,11 +18,10 @@ angular.module('showcasesApp')
         });
       return self;
     };
-    $scope.edit = function ($,e) {
-      var id = $(e.target).data('id');
-      // console.log($(e.target).data('id'));
-      // $scope.editData($scope.data.out);
-      // console.log($scope.data.out);
+    $scope.edit = function ($event) {
+      var id = $($event.target).data('id');
+      // console.log($($event.target).data('id'));
+      $scope.editData($scope.data.out);
       for (var i = 0; i < $scope.data.out.length; i++) {
           if ($scope.data.out[i].id === id) {
             $scope.editData($scope.data.out[i],id);
