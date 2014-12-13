@@ -1,12 +1,15 @@
-<div class="box"  ng-repeat="item in data.out">
-    <h2 ng-click="show = !show" >{{item.siteTitle}}</h2>
+<!-- <h1>Total Proj {{data.out.length}} totalPage </h1> -->
+<input class="search" ng-model="search.$" placeholder='Супер быстрый поиск'> <br>
+<div class="box" ng-repeat="item in data.data | filter:search:strict | orderBy:'-date'">
+    <h3 ng-click="show = !show" >{{item.siteTitle}}</h3>
     <div class="content ng-hide" ng-show="show">
       <p>{{item.siteDescription}}</p>
       <strong>Главная страница</strong> <a href="{{item.siteUrl}}">{{item.siteUrl}}</a>
       <ul>
-        <li  ng-repeat='item in item.nestedPage'>
+        <li class="1" ng-repeat='item in item.nestedPage'>
             {{item.description}} <a href="{{item.url}}">{{item.url}}</a>
         </li>
       </ul>
     </div>
+    <hr>
 </div>

@@ -8,6 +8,7 @@
  * Controller of the showcasesApp
  */
 angular.module('showcasesApp')
-  .controller('showCasesCtrl', function () {
+  .controller('showCasesCtrl', function ($scope, background) {
+  	$scope.background = background;
 
   });

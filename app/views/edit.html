@@ -1,6 +1,6 @@
-<h1 style="color: #273AFF;">Редактирование записей</h1>
+<h2>Редактирование записей</h2>
 <div class="box"  ng-repeat="item in data.out">
-    <h2 id='{{item.id}}' ng-click="show = !show" >{{item.siteTitle}}<span  ng-click="edit($event)" data-id='{{item.id}}' class="glyphicon glyphicon-floppy-saved"></span></h2>
+    <h3 id='{{item.id}}' ng-click="show = !show" >{{item.siteTitle}}<span  ng-click="edit(item.id)" class="glyphicon glyphicon-floppy-saved"></span> <span  ng-click="delete(item.id)" class="glyphicon glyphicon glyphicon-trash"></span></h3>
     <div class="content ng-hide" ng-show="show">
       <strong> <p editable-textarea='item.siteTitle'>{{item.siteTitle}}</p></strong>
       <p editable-textarea='item.siteDescription'>{{item.siteDescription}}</p>

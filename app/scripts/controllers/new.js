@@ -16,15 +16,16 @@ angular.module('showcasesApp')
       $scope.result = [];
       $scope.tmp = {};
       for (var i = 0; i < $scope.nest.length; i++) {
-          var items = $scope.nest[i].split('*');
-          $scope.tmp.url = items[0];
-          $scope.tmp.description = items[1];
-          $scope.result.push($scope.tmp);
+        var items = $scope.nest[i].split('*');
+        $scope.tmp.url = items[0];
+        $scope.tmp.description = items[1];
+        $scope.result.push($scope.tmp);
+        $scope.tmp = {};
       }
       return $scope.result;
     };
     $scope.addProject = function () {
-      console.log($scope.toArray($scope.Nested));
+      // console.log($scope.toArray($scope.Nested));
       $scope.Data = {
         date : new Date(),
         siteTitle : $scope.Title, 
@@ -33,8 +34,6 @@ angular.module('showcasesApp')
         siteDescription : $scope.Description
       };
       $scope.sendProject($scope.Data);
-//http://localhost:9000/#/new * новая запись
-//http://localhost:9000/*главная страница
     };
     $scope.sendProject = function (item) {
       $http.post($scope.dpd, item)

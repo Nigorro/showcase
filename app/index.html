@@ -17,7 +17,13 @@
     <link rel="stylesheet" href="styles/custom.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="showcasesApp">
+  <!-- <div class="preloader">
+    <img src="http://dajzafree.net/wp-content/uploads/2013/11/infinite-gif-preloader.gif">
+  </div> -->
+  <div ng-show="pendingRequests > 0" id="loader-wrapper">
+    <div id="loader"></div>
+  </div>
+  <body ng-app="showcasesApp" ng-controller="showCasesCtrl" class="{{background.randomizeStyle() }}">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -28,7 +34,10 @@
         <ul class="nav nav-pills pull-right">
           
         </ul>
-        <h3 class="text-muted">Витрина demo 0.1</h3>
+        <h3 class="top"><span class="glyphicon glyphicon-tree-conifer"></span> Витрина</h3>
+
+        <!-- <div class="preloader" ng-show="pendingRequests > 0"><h1>Loading</h1></div> -->
+        <!-- <div class="alert alert-warning" ng-show="isError === true">Something wrong</div> -->
       </div>
 
       <div ng-view=""></div>
@@ -49,7 +58,32 @@
        ga('create', 'UA-XXXXX-X');
        ga('send', 'pageview');
     </script>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter26983566 = new Ya.Metrika({id:26983566,
+                        clickmap:true,
+                        trackLinks:true,
+                        accurateTrackBounce:true});
+            } catch(e) { }
+        });
 
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+    </script>
+    <noscript><div><img src="//mc.yandex.ru/watch/26983566" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
     <!-- build:js(.) scripts/oldieshim.js -->
     <!--[if lt IE 9]>
     <script src="bower_components/es5-shim/es5-shim.js"></script>
@@ -74,6 +108,7 @@
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
+        <script src="scripts/service/mainbg.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/data.js"></script>
         <script src="scripts/controllers/about.js"></script>
